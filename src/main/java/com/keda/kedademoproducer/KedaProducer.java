@@ -27,7 +27,7 @@ public class KedaProducer implements Runnable {
   @Override
   public void run() {
     for (; ; ) {
-      String dummyData = String.format("Message : %d", (int) (Math.random() * 100));
+      String dummyData = String.format(Integer.toString((int) (Math.random() * 100)));
       CompletableFuture<SendResult<String, String>> callback = template.send(topic, dummyData);
       SendResult<String, String> result = null;
       try {
